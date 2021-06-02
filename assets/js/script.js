@@ -172,4 +172,21 @@ function newGender() {
   document.getElementById("gender-name").innerHTML = genders[index];
   document.getElementById("gender-desc").innerHTML = descriptions[index];
   document.getElementById("gender-flag").innerHTML = wrapImage(genders[index]);
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+jumpButton = document.getElementById("jumpButton");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    jumpButton.style.display = "block";
+  } else {
+    jumpButton.style.display = "none";
+  }
+}
+
+function topFunction() {
+  window.scrollTo({top: 0, behavior: 'smooth'});
 }

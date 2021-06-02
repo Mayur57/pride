@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+    <title>The LGBTQ+ Community</title>
+
     <!-- Metadata -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,13 +38,9 @@
     />
     <meta name="twitter:image" content="https://i.ibb.co/vjt9gc9/f-04.png" />
 
-    <title>The LGBTQ+ Community</title>
-
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon" />
-    <!-- <== TODO: Change image here -->
     <link href="assets/img/favicon.png" rel="apple-touch-icon" />
-    <!-- <== TODO: Change image here -->
     <link href="assets/img/favicon.png" rel="image_src" />
 
     <!-- Google Fonts -->
@@ -51,6 +50,10 @@
     />
 
     <!-- Vendor CSS Files -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link
       href="assets/vendor/bootstrap/css/bootstrap.min.css"
       rel="stylesheet"
@@ -82,16 +85,51 @@
 
       gtag("config", "UA-197465020-1");
     </script>
+
+    <!-- Absorb long press clicks to prevent context menus on phones -->
+    <script>
+      function absorbEvent_(event) {
+        var e = event || window.event;
+        e.preventDefault && e.preventDefault();
+        e.stopPropagation && e.stopPropagation();
+        e.cancelBubble = true;
+        e.returnValue = false;
+        return false;
+      }
+
+      function preventLongPressMenu(node) {
+        node.ontouchstart = absorbEvent_;
+        node.ontouchmove = absorbEvent_;
+        node.ontouchend = absorbEvent_;
+        node.ontouchcancel = absorbEvent_;
+      }
+
+      function init() {
+        preventLongPressMenu(document.getElementById("theimage"));
+      }
+    </script>
   </head>
 
-  <body>
+  <body onload="init()">
     <!-- ======= Main ======= -->
     <div id="portfolio" class="paddsection text-center">
       <h2 style="font-size: 2rem; letter-spacing: 7.5px; color: aliceblue">
         🏳️‍🌈 THE LGBTQ+ COMMUNITY
       </h2>
-      <p style="font-size: 0.9rem">Created with ❤️ by <a href="https://mayurbhoi.com/">Mayur Bhoi (he/him)</a></p>
+      <p style="font-size: 0.9rem">
+        Created with ❤️ by
+        <a href="https://mayurbhoi.com/">Mayur Bhoi (he/him)</a>
+      </p>
     </div>
+
+    <button onclick="topFunction()" id="jumpButton">
+      <span
+        class="material-icons"
+        style="font-size: 35px; color: rgba(240, 255, 255, 0.699)"
+      >
+        expand_less
+      </span>
+    </button>
 
     <div id="portfolio" class="">
       <div class="container">
@@ -123,9 +161,15 @@
           onclick="newGender()"
           type="button"
           class="btn btn-primary"
-          style="border-radius: 6px; height: auto; width: 70%; text-overflow: ellipsis; padding: 1rem;"
+          style="
+            border-radius: 6px;
+            height: auto;
+            width: 70%;
+            text-overflow: ellipsis;
+            padding: 1rem;
+          "
         >
-          <span style="letter-spacing: 3px; text-transform: uppercase;"
+          <span style="letter-spacing: 3px; text-transform: uppercase"
             >Show another flag</span
           >
         </button>
@@ -186,8 +230,10 @@
           made me realize the pain people go through while they struggle with
           their sexuality. If you know a person that might be curious or
           confused about their sexual orientation, please do comfort them. Also,
-          if you found this website useful, do consider sharing it and <a href="https://buymeacoffee.com/mayurbhoi/">donating
-          to the creator.</a>
+          if you found this website useful, do consider sharing it and
+          <a href="https://buymeacoffee.com/mayurbhoi/"
+            >donating to the creator.</a
+          >
         </p>
         <p style="text-align: center; padding-top: 90px; font-size: 2.2rem">
           <span
